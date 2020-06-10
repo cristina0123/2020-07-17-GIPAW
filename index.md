@@ -96,45 +96,6 @@ workshop is only open to people from a particular institution.
 {% endif %}
 
 {% comment %}
-LOCATION
-
-This block displays the address and links to maps showing directions
-if the latitude and longitude of the workshop have been set.  You
-can use https://itouchmap.com/latlong.html to find the lat/long of an
-address.
-{% endcomment %}
-{% assign begin_address = page.address | slice: 0, 4 | downcase  %}
-{% if page.address == "online" %}
-{% assign online = "true_private" %}
-{% elsif begin_address contains "http" %}
-{% assign online = "true_public" %}
-{% else %}
-{% assign online = "false" %}
-{% endif %}
-{% if page.latitude and page.longitude and online == "false" %}
-<p id="where">
-  <strong>Where:</strong>
-  {{page.address}}.
-  Get directions with
-  <a href="//www.openstreetmap.org/?mlat={{page.latitude}}&mlon={{page.longitude}}&zoom=16">OpenStreetMap</a>
-  or
-  <a href="//maps.google.com/maps?q={{page.latitude}},{{page.longitude}}">Google Maps</a>.
-</p>
-{% elsif online == "true_public" %}
-<p id="where">
-  <strong>Where:</strong>
-  online at <a href="{{page.address}}">{{page.address}}</a>.
-  If you need a password or other information to access the training,
-  the instructor will pass it on to you before the workshop.
-</p>
-{% elsif online == "true_private" %}
-<p id="where">
-  <strong>Where:</strong> This training will take place online.
-  The instructors will provide you with the infromation you will need to connect to this meeting.
-</p>
-{% endif %}
-
-{% comment %}
 DATE
 
 This block displays the date and links to Google Calendar.
@@ -144,46 +105,6 @@ This block displays the date and links to Google Calendar.
   <strong>When:</strong>
   {{page.humandate}}.
   {% include workshop_calendar.html %}
-</p>
-{% endif %}
-
-{% comment %}
-SPECIAL REQUIREMENTS
-
-Modify the block below if there are any special requirements.
-{% endcomment %}
-<p id="requirements">
-  <strong>Requirements:</strong> Participants must bring a laptop with a
-  Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) that they have administrative privileges on. They should have a few specific software packages installed (listed <a href="#setup">below</a>).
-</p>
-
-{% comment %}
-ACCESSIBILITY
-
-Modify the block below if there are any barriers to accessibility or
-special instructions.
-{% endcomment %}
-<p id="accessibility">
-  <strong>Accessibility:</strong>
-{% if online == "false" %}
-  We are committed to making this workshop
-  accessible to everybody. The workshop organizers have checked that:
-</p>
-<ul>
-  <li>The room is wheelchair / scooter accessible.</li>
-  <li>Accessible restrooms are available.</li>
-</ul>
-<p>
-  Materials will be provided in advance of the workshop and
-  large-print handouts are available if needed by notifying the
-  organizers in advance.  If we can help making learning easier for
-  you (e.g. sign-language interpreters, lactation facilities) please
-  get in touch (using contact details below) and we will
-  attempt to provide them.
-{% else %}
-  We are dedicated to providing a positive and accessible learning environment for all. Please
-  notify the instructors in advance of the workshop if you require any accommodations or if there is
-  anything we can do to make this workshop more accessible to you.
 </p>
 {% endif %}
 
