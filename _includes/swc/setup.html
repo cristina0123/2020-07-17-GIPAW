@@ -1,3 +1,33 @@
+<div id="shell"> {% comment %} Start of 'MPI_INIT' section. {% endcomment %}
+  <h3>MPI COMM WORLD</h3>
+  <p style="margin-left: 40px">
+    Initializes the parallel processes.
+  </p>
+
+  <div>
+    <ul class="nav nav-tabs nav-justified" role="tablist">
+      <li role="presentation" class="active"><a data-os="fortran" href="#fortran" aria-controls="fortran" role="tab" data-toggle="tab">Fortran 95</a></li>
+      <li role="presentation"><a data-os="Python" href="#python" aria-controls="Python" role="tab" data-toggle="tab">Python</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <article role="tabpanel" class="tab-pane active" id="fortran">
+        <p>
+          <h3><b>COMMAND USAGE:</b> call MPI_INIT(ierr)</h3>
+          ierr is an integer that contains the error code.
+        </p>
+      </article>
+      <article role="tabpanel" class="tab-pane active" id="python">
+        <p>
+          <h3><b>COMMAND USAGE:</b> MPI.Init()</h3>
+          MPI.Init() is called when MPI is imported from the mpi4py package.
+          No need to initialize in python.
+        </p>
+      </article>
+    </div>
+  </div>
+</div> {% comment %} End of 'MPI_INIT' section. {% endcomment %}
+
 <div id="shell"> {% comment %} Start of 'MPI_COMM_WORLD' section. {% endcomment %}
   <h3>MPI COMM WORLD</h3>
   <p style="margin-left: 40px">
@@ -23,4 +53,5 @@
       </article>
     </div>
   </div>
-</div> {% comment %} End of 'shell' section. {% endcomment %}
+</div> {% comment %} End of 'MPI_COMM_WORLD' section. {% endcomment %}
+
