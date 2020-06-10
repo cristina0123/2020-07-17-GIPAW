@@ -190,3 +190,7 @@ please preview your site before committing, and make sure to run
 {% elsif site.carpentry == "lc" %}
 {% include lc/setup.html %}
 {% endif %}
+
+
+<p> Fortran Reference: http://web.utk.edu/~wfeng1/doc/mpi_tutorial.pdf </p>
+<p> Python Reference: add reference </p>
