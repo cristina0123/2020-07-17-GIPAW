@@ -28,7 +28,7 @@
   </div>
 </div> {% comment %} End of 'MPI_INIT' section. {% endcomment %}
 
-<hr/>
+<hr style="height:20px">
 
 <div id="shell"> {% comment %} Start of 'MPI_COMM_WORLD' section. {% endcomment %}
   <h3>MPI COMM WORLD</h3>
@@ -51,6 +51,44 @@
       <article role="tabpanel" class="tab-pane active" id="python">
         <p>
           <h3><b>COMMAND USAGE:</b> comm = MPI.COMM_WORLD</h3>
+        </p>
+      </article>
+    </div>
+  </div>
+</div> {% comment %} End of 'MPI_COMM_WORLD' section. {% endcomment %}
+
+<hr style="height:20px">
+
+<div id="shell"> {% comment %} Start of 'MPI_COMM_SIZE and MPI_COMM_RANK' section. {% endcomment %}
+  <h3>MPI COMM SIZE and RANK</h3>
+  <p style="margin-left: 40px">
+    MPI_COMM_SIZE returns the number of processors available.
+    MPI_COMM_RANK returns the current processor number.
+  </p>
+
+  <div>
+    <ul class="nav nav-tabs nav-justified" role="tablist">
+      <li role="presentation" class="active"><a data-os="fortran" href="#fortran" aria-controls="fortran" role="tab" data-toggle="tab">Fortran 95</a></li>
+      <li role="presentation"><a data-os="Python" href="#python" aria-controls="Python" role="tab" data-toggle="tab">Python</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <article role="tabpanel" class="tab-pane active" id="fortran">
+        <p>
+          <h3><b>COMMAND USAGE:</b> call MPI_COMM_SIZE( comm, nproc, ierr )</h3>
+          <h3><b>COMMAND USAGE:</b> call MPI_COMM_RANK( comm, iproc, ierr )</h3>
+          comm: Communicator that is holding all the processes.
+          nproc: INTEGER that will hold the number of processors.
+          iproc: INTEGER that will hold the current processor identifier.
+          ierr: Holds the error code, if any.
+        </p>
+      </article>
+      <article role="tabpanel" class="tab-pane active" id="python">
+        <p>
+          <h3><b>COMMAND USAGE:</b> comm.size</h3>
+          <h3><b>COMMAND USAGE:</b> comm.Get_rank()</h3>
+          comm.size: returns the number of processors being used.
+          comm.Get_rank(): returns the current processor identifier.
         </p>
       </article>
     </div>
