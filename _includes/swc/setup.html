@@ -1,4 +1,4 @@
-<div id="shell"> {% comment %} Start of 'MPI_INIT' section. {% endcomment %}
+<div id="init"> {% comment %} Start of 'MPI_INIT' section. {% endcomment %}
   <h3>MPI_INIT</h3>
   <p style="margin-left: 40px">
     Initializes the parallel processes.
@@ -6,18 +6,18 @@
 
   <div>
     <ul class="nav nav-tabs nav-justified" role="tablist">
-      <li role="presentation" class="active"><a data-os="fortran" href="#fortran" aria-controls="fortran" role="tab" data-toggle="tab">Fortran 95</a></li>
-      <li role="presentation"><a data-os="Python" href="#python" aria-controls="Python" role="tab" data-toggle="tab">Python</a></li>
+      <li role="presentation" class="active"><a data-os="fortran1" href="#fortran1" aria-controls="fortran1" role="tab" data-toggle="tab">Fortran 95</a></li>
+      <li role="presentation"><a data-os="python1" href="#python1" aria-controls="python1" role="tab" data-toggle="tab">Python</a></li>
     </ul>
 
     <div class="tab-content">
-      <article role="tabpanel" class="tab-pane active" id="fortran">
+      <article role="tabpanel" class="tab-pane active" id="fortran1">
         <p>
           <h3><b>COMMAND USAGE:</b> call MPI_INIT(ierr)</h3>
           ierr is an integer that contains the error code.
         </p>
       </article>
-      <article role="tabpanel" class="tab-pane active" id="python">
+      <article role="tabpanel" class="tab-pane active" id="python1">
         <p>
           <h3><b>COMMAND USAGE:</b> MPI.Init()</h3>
           MPI.Init() is called when MPI is imported from the mpi4py package.
@@ -28,9 +28,9 @@
   </div>
 </div> {% comment %} End of 'MPI_INIT' section. {% endcomment %}
 
-<hr/>
+<hr style="height: 12px; color:black; border-style: inset;">
 
-<div id="shell"> {% comment %} Start of 'MPI_COMM_WORLD' section. {% endcomment %}
+<div id="comm_world"> {% comment %} Start of 'MPI_COMM_WORLD' section. {% endcomment %}
   <h3>MPI COMM WORLD</h3>
   <p style="margin-left: 40px">
     Collection of processors that will be used to run calculations in parallel.
@@ -38,17 +38,17 @@
 
   <div>
     <ul class="nav nav-tabs nav-justified" role="tablist">
-      <li role="presentation" class="active"><a data-os="fortran" href="#fortran" aria-controls="fortran" role="tab" data-toggle="tab">Fortran 95</a></li>
-      <li role="presentation"><a data-os="Python" href="#python" aria-controls="Python" role="tab" data-toggle="tab">Python</a></li>
+      <li role="presentation" class="active"><a data-os="fortran2" href="#fortran2" aria-controls="fortran2" role="tab" data-toggle="tab">Fortran 95</a></li>
+      <li role="presentation"><a data-os="python2" href="#python2" aria-controls="python2" role="tab" data-toggle="tab">Python</a></li>
     </ul>
 
     <div class="tab-content">
-      <article role="tabpanel" class="tab-pane active" id="fortran">
+      <article role="tabpanel" class="tab-pane active" id="fortran2">
         <p>
           <h3><b>COMMAND USAGE:</b> comm = MPI_COMM_WORLD</h3>
         </p>
       </article>
-      <article role="tabpanel" class="tab-pane active" id="python">
+      <article role="tabpanel" class="tab-pane active" id="python2">
         <p>
           <h3><b>COMMAND USAGE:</b> comm = MPI.COMM_WORLD</h3>
         </p>
@@ -57,9 +57,9 @@
   </div>
 </div> {% comment %} End of 'MPI_COMM_WORLD' section. {% endcomment %}
 
-<hr/>
+<hr style="height: 12px; color:black; border-style: inset;">
 
-<div id="shell"> {% comment %} Start of 'MPI_COMM_SIZE and MPI_COMM_RANK' section. {% endcomment %}
+<div id="size_rank"> {% comment %} Start of 'MPI_COMM_SIZE and MPI_COMM_RANK' section. {% endcomment %}
   <h3>MPI COMM SIZE and RANK</h3>
   <p style="margin-left: 40px">
     MPI_COMM_SIZE returns the number of processors available.
@@ -68,12 +68,12 @@
 
   <div>
     <ul class="nav nav-tabs nav-justified" role="tablist">
-      <li role="presentation" class="active"><a data-os="fortran" href="#fortran" aria-controls="fortran" role="tab" data-toggle="tab">Fortran 95</a></li>
-      <li role="presentation"><a data-os="Python" href="#python" aria-controls="Python" role="tab" data-toggle="tab">Python</a></li>
+      <li role="presentation" class="active"><a data-os="fortran3" href="#fortran3" aria-controls="fortran3" role="tab" data-toggle="tab">Fortran 95</a></li>
+      <li role="presentation"><a data-os="python3" href="#python3" aria-controls="python3" role="tab" data-toggle="tab">Python</a></li>
     </ul>
 
     <div class="tab-content">
-      <article role="tabpanel" class="tab-pane active" id="fortran">
+      <article role="tabpanel" class="tab-pane active" id="fortran3">
         <p>
           <h3><b>COMMAND USAGE:</b> call MPI_COMM_SIZE( comm, nproc, ierr )</h3>
           <h3><b>COMMAND USAGE:</b> call MPI_COMM_RANK( comm, iproc, ierr )</h3>
@@ -83,7 +83,7 @@
           ierr: Holds the error code, if any.
         </p>
       </article>
-      <article role="tabpanel" class="tab-pane active" id="python">
+      <article role="tabpanel" class="tab-pane active" id="python3">
         <p>
           <h3><b>COMMAND USAGE:</b> comm.size</h3>
           <h3><b>COMMAND USAGE:</b> comm.Get_rank()</h3>
@@ -93,5 +93,82 @@
       </article>
     </div>
   </div>
-</div> {% comment %} End of 'MPI_COMM_WORLD' section. {% endcomment %}
+</div> {% comment %} End of 'MPI_COMM_SIZE and MPI_COMM_RANK' section. {% endcomment %}
 
+<hr style="height: 12px; color:black; border-style: inset;">
+
+<div id="send"> {% comment %} Start of 'send' section. {% endcomment %}
+  <h3>Sending data</h3>
+  <p style="margin-left: 40px">
+    Data needs to be sent from the root_processor, usually rank 0 processor, to the
+    other processors.
+  </p>
+
+  <div>
+    <ul class="nav nav-tabs nav-justified" role="tablist">
+      <li role="presentation" class="active"><a data-os="fortran4" href="#fortran4" aria-controls="fortran4" role="tab" data-toggle="tab">Fortran 95</a></li>
+      <li role="presentation"><a data-os="python4" href="#python4" aria-controls="python4" role="tab" data-toggle="tab">Python</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <article role="tabpanel" class="tab-pane active" id="fortran4">
+        <p>
+          <h3><b>COMMAND USAGE:</b> call MPI_COMM_SIZE( comm, nproc, ierr )</h3>
+          <h3><b>COMMAND USAGE:</b> call MPI_COMM_RANK( comm, iproc, ierr )</h3>
+          comm: Communicator that is holding all the processes.
+          nproc: INTEGER that will hold the number of processors.
+          iproc: INTEGER that will hold the current processor identifier.
+          ierr: Holds the error code, if any.
+        </p>
+      </article>
+      <article role="tabpanel" class="tab-pane active" id="python4">
+        <p>
+          <h3><b>COMMAND USAGE:</b> comm.size</h3>
+          <h3><b>COMMAND USAGE:</b> comm.Get_rank()</h3>
+          comm.size: returns the number of processors being used.
+          comm.Get_rank(): returns the current processor identifier.
+        </p>
+      </article>
+    </div>
+  </div>
+</div> {% comment %} End of 'MPI_COMM_SIZE and MPI_COMM_RANK' section. {% endcomment %}
+
+<hr style="height: 12px; color:black; border-style: inset;">
+
+<div id="receive"> {% comment %} Start of 'receive' section. {% endcomment %}
+  <h3>Receiving data</h3>
+  <p style="margin-left: 40px">
+    Data needs to be received from the root_processor, usually rank 0 processor, by the
+    other processors.
+  </p>
+
+  <div>
+    <ul class="nav nav-tabs nav-justified" role="tablist">
+      <li role="presentation" class="active"><a data-os="fortran5" href="#fortran5" aria-controls="fortran5" role="tab" data-toggle="tab">Fortran 95</a></li>
+      <li role="presentation"><a data-os="python5" href="#python5" aria-controls="python5" role="tab" data-toggle="tab">Python</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <article role="tabpanel" class="tab-pane active" id="fortran5">
+        <p>
+          <h3><b>COMMAND USAGE:</b> call MPI_COMM_SIZE( comm, nproc, ierr )</h3>
+          <h3><b>COMMAND USAGE:</b> call MPI_COMM_RANK( comm, iproc, ierr )</h3>
+          comm: Communicator that is holding all the processes.
+          nproc: INTEGER that will hold the number of processors.
+          iproc: INTEGER that will hold the current processor identifier.
+          ierr: Holds the error code, if any.
+        </p>
+      </article>
+      <article role="tabpanel" class="tab-pane active" id="python5">
+        <p>
+          <h3><b>COMMAND USAGE:</b> comm.size</h3>
+          <h3><b>COMMAND USAGE:</b> comm.Get_rank()</h3>
+          comm.size: returns the number of processors being used.
+          comm.Get_rank(): returns the current processor identifier.
+        </p>
+      </article>
+    </div>
+  </div>
+</div> {% comment %} End of 'MPI_COMM_SIZE and MPI_COMM_RANK' section. {% endcomment %}
+
+<hr style="height: 12px; color:black; border-style: inset;">
