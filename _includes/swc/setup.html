@@ -119,17 +119,26 @@
     <div class="tab-content">
       <article role="tabpanel" class="tab-pane active" id="fortran4">
         <p>
-          <h3><b>COMMAND USAGE:</b> insert command</h3>
+          <h3><b>COMMAND USAGE:</b> CALL MPI_SEND( buffer, buffer size, MPI_TYPE, processor, tag, comm, ierr )</h3>
           <ul>
-            <li>describe variables</li>
+            <li>buffer: variable/array that will be operated on.</li>
+            <li>buffer size: size of buffer. number of elements being sent.</li>
+            <li>MPI_TYPE: data type that the buffers hold.</li>
+            <li>processor: processor number the data is being sent to.</li>
+            <li>tag: integer that keeps track of the message being sent. Useful if sending many messages.</li>
+            <li>comm: Communicator that is holding all the processes.</li>
+            <li>ierr: Holds the error code, if any.</li>
           </ul>
         </p>
       </article>
       <article role="tabpanel" class="tab-pane active" id="python4">
         <p>
-          <h3><b>COMMAND USAGE:</b> insert command</h3>
+          <h3><b>COMMAND USAGE:</b> comm.send( size 1 buffer, dest=destination )</h3>
+          <h3><b>COMMAND USAGE:</b> comm.Send( buffer, dest=destination )</h3>
           <ul>
-            <li>describe variables</li>
+            <li>size 1 buffer: single element, float or integer.</li>
+            <li>dest=destination: destination is the processor number that will receive the data.</li>
+            <li>buffer: array that is being sent. Must send the length first with comm.send( ... )</li>
           </ul>
         </p>
       </article>
@@ -155,17 +164,27 @@
     <div class="tab-content">
       <article role="tabpanel" class="tab-pane active" id="fortran5">
         <p>
-          <h3><b>COMMAND USAGE:</b> insert command</h3>
+          <h3><b>COMMAND USAGE:</b> CALL MPI_RECV( buffer, size, MPI_TYPE, source, tag, comm, status, ierr )</h3>
           <ul>
-            <li>describe variables</li>
+            <li>buffer: data that is being sent. Can be a single number or an array of any size.</li>
+            <li>size: number of elements that the buffer contains.</li>
+            <li>MPI_TYPE: data type that the buffers hold.</li>
+            <li>source: processor number that is sending the data.</li>
+            <li>tag: integer that keeps track of the message being sent. Useful if sending many messages.</li>
+            <li>comm: Communicator that is holding all the processes.</li>
+            <li>status: holds the status of the sending/receiving.</li>
+            <li>ierr: Holds the error code, if any.</li>
           </ul>
         </p>
       </article>
       <article role="tabpanel" class="tab-pane active" id="python5">
         <p>
-          <h3><b>COMMAND USAGE:</b> insert command</h3>
+          <h3><b>COMMAND USAGE:</b> size 1 buffer = comm.recv( source=processor )</h3>
+          <h3><b>COMMAND USAGE:</b> comm.Recv( buffer, source=processor )</h3>
           <ul>
-            <li>describe variables</li>
+            <li>size 1 buffer: single element, float or integer.</li>
+            <li>source=processor: processor is the integer value of the processor that is sending the data.</li>
+            <li>buffer: use comm.Recv( ... ) if sending an array. The array has to be initialized beforehand.</li>
           </ul>
         </p>
       </article>
@@ -194,6 +213,7 @@
           <h3><b>COMMAND USAGE:</b> call MPI_BCAST( buffer, buffer size, MPI_TYPE, root, comm, ierr )</h3>
           <ul>
             <li>buffer: data that is being sent. Can be a single number or an array of any size.</li>
+            <li>buffer size: size of buffer, number of elements being sent.</li>
             <li>comm: Communicator that is holding all the processes.</li>
             <li>nproc: INTEGER that will hold the number of processors.</li>
             <li>iproc: INTEGER that will hold the current processor identifier.</li>
@@ -220,7 +240,7 @@
 <div id="receive"> {% comment %} Start of 'reduce' section. {% endcomment %}
   <h3>Reducing data</h3>
   <p style="margin-left: 40px">
-    Application of operation on a variable, if single variable, or on matching indicies, if array.
+    Application of operation on a variable, if single variable, or on matching indicies across processors, if array.
   </p>
 
   <div>

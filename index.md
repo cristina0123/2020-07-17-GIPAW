@@ -112,6 +112,13 @@ Display the contact email address set in the configuration file.
 
 <hr/>
 
+<p id="tutorial_files">
+  <strong>Tutorial Files</strong>:
+  
+</p>
+
+<hr/>
+
 {% comment %}
 SYLLABUS
 
