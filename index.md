@@ -4,6 +4,7 @@ layout: workshop      # DON'T CHANGE THIS.
 # online workshop) are available at
 # https://carpentries.github.io/workshop-template/customization/index.html
 venue: "University of North Texas"        # brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
+group: "MateriaLab"
 address: ""      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
 country: "US"      # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the institution that hosts the workshop
 language: "ENGLISH"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the
@@ -14,10 +15,7 @@ humantime: "11:00 am - 12:00 pm"    # human-readable times for the workshop (e.g
 startdate: 2020-06-26      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 enddate: 2020-06-26        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
 instructor: ["Gabriel Medrano"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
-helper: []     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
 email: ["GabrielMedrano@my.unt.edu"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
-collaborative_notes:  # optional: URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document (e.g., https://pad.carpentries.org/2015-01-01-euphoria)
-eventbrite:           # optional: alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
 ---
 
 {% comment %} See instructions in the comments below for how to edit specific sections of this workshop template. {% endcomment %}
@@ -43,27 +41,6 @@ It looks like you are setting up a website for a Data Carpentry curriculum but y
 </div>
 {% endunless %}
 {% endif %}
-
-{% comment %}
-EVENTBRITE
-
-This block includes the Eventbrite registration widget if
-'eventbrite' has been set in the header.  You can delete it if you
-are not using Eventbrite, or leave it in, since it will not be
-displayed if the 'eventbrite' field in the header is not set.
-{% endcomment %}
-{% if page.eventbrite %}
-<strong>Some adblockers block the registration window. If you do not see the 
-  registration box below, please check your adblocker settings.</strong>
-<iframe
-  src="https://www.eventbrite.com/tickets-external?eid={{page.eventbrite}}&ref=etckt"
-  frameborder="0"
-  width="100%"
-  height="280px"
-  scrolling="auto">
-</iframe>
-{% endif %}
-
 
 <h2 id="general">General Information</h2>
 
@@ -192,5 +169,9 @@ please preview your site before committing, and make sure to run
 {% endif %}
 
 
-<p> Fortran Reference: http://web.utk.edu/~wfeng1/doc/mpi_tutorial.pdf </p>
-<p> Python Reference: https://mpi4py.readthedocs.io/en/stable/overview.html </p>
+<p> Fortran References:</p>
+<p> <a href="http://web.utk.edu/~wfeng1/doc/mpi_tutorial.pdf"> Reference 1 </a> </p>
+<p> <a href="https://mpitutorial.com/tutorials/"> Reference 2 </a> </p>
+<p> Python References:</p>
+<p> <a href="https://mpi4py.readthedocs.io/en/stable/index.html"> Reference 3 </a> </p>
+<p> <a href="https://hpc.llnl.gov/sites/default/files/pyMPI.pdf"> Reference 4 </a> </p>

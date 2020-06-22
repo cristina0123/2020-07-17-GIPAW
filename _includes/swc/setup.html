@@ -62,8 +62,10 @@
 <div id="size_rank"> {% comment %} Start of 'MPI_COMM_SIZE and MPI_COMM_RANK' section. {% endcomment %}
   <h3>MPI COMM SIZE and RANK</h3>
   <p style="margin-left: 40px">
-    MPI_COMM_SIZE returns the number of processors available.
-    MPI_COMM_RANK returns the current processor number.
+    <ul>
+      <li>MPI_COMM_SIZE returns the number of processors available.</li>
+      <li>MPI_COMM_RANK returns the current processor number.</li>
+    </ul>
   </p>
 
   <div>
@@ -77,18 +79,22 @@
         <p>
           <h3><b>COMMAND USAGE:</b> call MPI_COMM_SIZE( comm, nproc, ierr )</h3>
           <h3><b>COMMAND USAGE:</b> call MPI_COMM_RANK( comm, iproc, ierr )</h3>
-          comm: Communicator that is holding all the processes.
-          nproc: INTEGER that will hold the number of processors.
-          iproc: INTEGER that will hold the current processor identifier.
-          ierr: Holds the error code, if any.
+          <ul>
+            <li>comm: Communicator that is holding all the processes.</li>
+            <li>nproc: INTEGER that will hold the number of processors.</li>
+            <li>iproc: INTEGER that will hold the current processor identifier.</li>
+            <li>ierr: Holds the error code, if any.</li>
+          </ul>
         </p>
       </article>
       <article role="tabpanel" class="tab-pane active" id="python3">
         <p>
           <h3><b>COMMAND USAGE:</b> comm.size</h3>
           <h3><b>COMMAND USAGE:</b> comm.Get_rank()</h3>
-          comm.size: returns the number of processors being used.
-          comm.Get_rank(): returns the current processor identifier.
+          <ul>
+            <li>comm.size: returns the number of processors being used.</li>
+            <li>comm.Get_rank(): returns the current processor identifier.</li>
+          </ul>
         </p>
       </article>
     </div>
@@ -113,20 +119,18 @@
     <div class="tab-content">
       <article role="tabpanel" class="tab-pane active" id="fortran4">
         <p>
-          <h3><b>COMMAND USAGE:</b> call MPI_COMM_SIZE( comm, nproc, ierr )</h3>
-          <h3><b>COMMAND USAGE:</b> call MPI_COMM_RANK( comm, iproc, ierr )</h3>
-          comm: Communicator that is holding all the processes.
-          nproc: INTEGER that will hold the number of processors.
-          iproc: INTEGER that will hold the current processor identifier.
-          ierr: Holds the error code, if any.
+          <h3><b>COMMAND USAGE:</b> insert command</h3>
+          <ul>
+            <li>describe variables</li>
+          </ul>
         </p>
       </article>
       <article role="tabpanel" class="tab-pane active" id="python4">
         <p>
-          <h3><b>COMMAND USAGE:</b> comm.size</h3>
-          <h3><b>COMMAND USAGE:</b> comm.Get_rank()</h3>
-          comm.size: returns the number of processors being used.
-          comm.Get_rank(): returns the current processor identifier.
+          <h3><b>COMMAND USAGE:</b> insert command</h3>
+          <ul>
+            <li>describe variables</li>
+          </ul>
         </p>
       </article>
     </div>
@@ -151,20 +155,105 @@
     <div class="tab-content">
       <article role="tabpanel" class="tab-pane active" id="fortran5">
         <p>
-          <h3><b>COMMAND USAGE:</b> call MPI_COMM_SIZE( comm, nproc, ierr )</h3>
-          <h3><b>COMMAND USAGE:</b> call MPI_COMM_RANK( comm, iproc, ierr )</h3>
-          comm: Communicator that is holding all the processes.
-          nproc: INTEGER that will hold the number of processors.
-          iproc: INTEGER that will hold the current processor identifier.
-          ierr: Holds the error code, if any.
+          <h3><b>COMMAND USAGE:</b> insert command</h3>
+          <ul>
+            <li>describe variables</li>
+          </ul>
         </p>
       </article>
       <article role="tabpanel" class="tab-pane active" id="python5">
         <p>
-          <h3><b>COMMAND USAGE:</b> comm.size</h3>
-          <h3><b>COMMAND USAGE:</b> comm.Get_rank()</h3>
-          comm.size: returns the number of processors being used.
-          comm.Get_rank(): returns the current processor identifier.
+          <h3><b>COMMAND USAGE:</b> insert command</h3>
+          <ul>
+            <li>describe variables</li>
+          </ul>
+        </p>
+      </article>
+    </div>
+  </div>
+</div> {% comment %} End of 'MPI_COMM_SIZE and MPI_COMM_RANK' section. {% endcomment %}
+
+<hr style="height: 12px; color:black; border-style: inset;">
+
+<div id="receive"> {% comment %} Start of 'broadcast' section. {% endcomment %}
+  <h3>Broadcasting data</h3>
+  <p style="margin-left: 40px">
+    Data is sent to all other processors, while the processor sending the data keeps
+     a copy of the data.
+  </p>
+
+  <div>
+    <ul class="nav nav-tabs nav-justified" role="tablist">
+      <li role="presentation" class="active"><a data-os="fortran6" href="#fortran6" aria-controls="fortran6" role="tab" data-toggle="tab">Fortran 95</a></li>
+      <li role="presentation"><a data-os="python6" href="#python6" aria-controls="python6" role="tab" data-toggle="tab">Python</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <article role="tabpanel" class="tab-pane active" id="fortran6">
+        <p>
+          <h3><b>COMMAND USAGE:</b> call MPI_BCAST( buffer, buffer size, MPI_TYPE, root, comm, ierr )</h3>
+          <ul>
+            <li>buffer: data that is being sent. Can be a single number or an array of any size.</li>
+            <li>comm: Communicator that is holding all the processes.</li>
+            <li>nproc: INTEGER that will hold the number of processors.</li>
+            <li>iproc: INTEGER that will hold the current processor identifier.</li>
+            <li>ierr: Holds the error code, if any.</li>
+          </ul>
+        </p>
+      </article>
+      <article role="tabpanel" class="tab-pane active" id="python6">
+        <p>
+          <h3><b>COMMAND USAGE:</b> buffer_out = comm.bcast( buffer_in, root=0 )</h3>
+          <ul>
+            <li>comm = MPI.COMM_WORLD</li>
+            <li>buffer_in/out: data that is being sent/received. Can be a single number or an array of any size.</li>
+            <li>root: The number of the main processor.</li>
+          </ul>
+        </p>
+      </article>
+    </div>
+  </div>
+</div> {% comment %} End of 'MPI_COMM_SIZE and MPI_COMM_RANK' section. {% endcomment %}
+
+<hr style="height: 12px; color:black; border-style: inset;">
+
+<div id="receive"> {% comment %} Start of 'reduce' section. {% endcomment %}
+  <h3>Reducing data</h3>
+  <p style="margin-left: 40px">
+    Application of operation on a variable, if single variable, or on matching indicies, if array.
+  </p>
+
+  <div>
+    <ul class="nav nav-tabs nav-justified" role="tablist">
+      <li role="presentation" class="active"><a data-os="fortran7" href="#fortran7" aria-controls="fortran7" role="tab" data-toggle="tab">Fortran 95</a></li>
+      <li role="presentation"><a data-os="python7" href="#python7" aria-controls="python7" role="tab" data-toggle="tab">Python</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <article role="tabpanel" class="tab-pane active" id="fortran7">
+        <p>
+          <h3><b>COMMAND USAGE:</b> CALL MPI_REDUCE( buffer, second buffer, size, MPI_TYPE, MPI_CALC, root, comm, ierr )</h3>
+          <ul>
+            <li>buffer: variable/array that will be operated on.</li>
+            <li>second buffer: buffer that will hold the final value.</li>
+            <li>size: size of buffer. second buffer must be the same size.</li>
+            <li>MPI_TYPE: data type that the buffers hold.</li>
+            <li>MPI_CALC: calculation that will be applied to each element.</li>
+            <li>root: root processor integer value.</li>
+            <li>comm: Communicator that is holding all the processes.</li>
+            <li>ierr: Holds the error code, if any.</li>
+          </ul>
+        </p>
+      </article>
+      <article role="tabpanel" class="tab-pane active" id="python7">
+        <p>
+          <h3><b>COMMAND USAGE:</b> second buffer = comm.reduce( buffer, op=operation, root=0 )</h3>
+          <ul>
+            <li>second buffer: buffer that will hold the final value.</li>
+            <li>buffer: variable/array that will be operated on.</li>
+            <li>operation: operation that will be applied to each element.</li>
+            <li>root: root processor integer value, usually 0.</li>
+          </ul>
         </p>
       </article>
     </div>

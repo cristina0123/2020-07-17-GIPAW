@@ -14,6 +14,7 @@
 <div class="jumbotron">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
+      <img src="../fig/logo.png" alt="logo" width="338" height="181">
       {% unless site.title == "Workshop Title" or site.title == "" %}
       <h2>{{site.title}}</h1>
       {% endunless %}
@@ -25,12 +26,11 @@
           {% elsif online == "true_private" %}
           <p>Online</p>
           {% endif %}
+          <p><strong>Group: </strong>{{page.group}}</p>
           <p>{{page.humandate}}</p>
           <p>{% if page.humantime %}{{page.humantime}}{% endif %}</p>
-        </div>
-        <div class="col-md-6">
           <p>
-          <strong>Instructors:</strong>
+          <strong>Instructor:</strong>
           {% if page.instructor %}
           {{page.instructor | join: ', ' %}}
           {% else %}
