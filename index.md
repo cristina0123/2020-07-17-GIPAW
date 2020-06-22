@@ -113,8 +113,13 @@ Display the contact email address set in the configuration file.
 <hr/>
 
 <p id="tutorial_files">
+  <p>To download files, right click on link, save link as..</p>
   <strong>Tutorial Files</strong>:
-  
+    <ul>
+      <li><a href="https://raw.githubusercontent.com/drano1024/2020-06-26-MPI_tutorial/gh-pages/files/MPI_Tutorial.f90" download> Fortran MPI_Tutorial file</a></li>
+      <li><a href="https://raw.githubusercontent.com/drano1024/2020-06-26-MPI_tutorial/gh-pages/files/MPI_Tutorial.py" download> Python MPI_Tutorial file</a></li>
+      <li><a href="https://raw.githubusercontent.com/drano1024/2020-06-26-MPI_tutorial/gh-pages/files/run_code.sh" download> Script to run codes</a></li>
+    </ul>
 </p>
 
 <hr/>
