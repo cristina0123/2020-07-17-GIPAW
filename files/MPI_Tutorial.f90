@@ -28,10 +28,13 @@ PROGRAM MPI_Tutorial
     !This IF statement splits the code by the main processor
     !and the task runners.
     IF ( iproc == root_process ) THEN
-        CALL mproc( nproc, icomm, ierr, calc_num )
-    ELSE
-        CALL proc( iproc, icomm, ierr, calc_num, integrals )
+        IF ( nproc == 1 ) THEN
+            CALL single( calc_num, integrals )
+        ELSE
+            CALL mproc( nproc, icomm, ierr, calc_num )
+        END IF
     END IF
+    CALL proc( iproc, icomm, ierr, calc_num, integrals )
 
     !Wait here for all to finish before ending MPI process
     CALL MPI_BARRIER( icomm, ierr )
@@ -43,9 +46,9 @@ PROGRAM MPI_Tutorial
     CALL MPI_REDUCE( integrals, res, calc_num*2, MPI_REAL, MPI_SUM, 0, icomm, ierr )
 
     !This do loop prints out the integral values. Used to make sure code runs correctly.
-    !DO i=1,calc_num
-    !    IF ( iproc == root_process ) print *, i, res(i)
-    !END DO
+    DO i=1,calc_num
+        IF ( iproc == root_process ) print *, i, res(i)
+    END DO
 
     !End time check
     t2 = MPI_Wtime()
@@ -53,6 +56,30 @@ PROGRAM MPI_Tutorial
         & print *, 'Code with', nproc, 'processors took', t2-t1, 'seconds.'
     CALL MPI_FINALIZE( ierr )
 END PROGRAM
+
+SUBROUTINE single( calc_num, integrals )
+    IMPLICIT NONE
+    INTEGER, INTENT(IN) :: calc_num
+    INTEGER, ALLOCATABLE, DIMENSION(:,:) :: calcs
+    REAL*8, ALLOCATABLE, DIMENSION(:) :: x, w
+    REAL*8, DIMENSION(calc_num), INTENT(INOUT) :: integrals
+    INTEGER :: i, n
+    ALLOCATE(calcs(calc_num,2))
+    DO i=1,calc_num
+        calcs(i,1) = i
+        calcs(i,2) = 0
+    END DO
+
+    !n is the number of quadrature points to use
+    !Change here if needed as well as in the proc subroutine
+    n = 150
+    ALLOCATE(x(n))
+    ALLOCATE(w(n))
+
+    !These two routines calculate the integral.
+    CALL gaulag( x, w, n )
+    CALL calc_inte( calcs, 0, x, w, n, calc_num, integrals )
+END SUBROUTINE
 
 !Subroutine for the main processor. This is the one that sends out
 !tasks for the other processor to complete.
@@ -83,13 +110,14 @@ SUBROUTINE proc( iproc, icomm, ierr, calc_num, integrals )
     INTEGER :: i, n
 
     !n is the number of quadrature points to use
+    !Change here if needed as well as in the single subroutine
     n = 150
     ALLOCATE(calcs(calc_num,2))
     ALLOCATE(x(n))
     ALLOCATE(w(n))
     
     !This MPI_BCAST call accepts the calcs array from the root processor.
-    CALL MPI_BCAST( calcs, 2*calc_num, MPI_INTEGER, 0, icomm, ierr )
+    IF ( .NOT. iproc == 0 )CALL MPI_BCAST( calcs, 2*calc_num, MPI_INTEGER, 0, icomm, ierr )
 
     !These two routines calculate the integral.
     CALL gaulag( x, w, n )
@@ -106,12 +134,12 @@ SUBROUTINE split_tasks( nproc, calc_num, calcs )
     INTEGER, DIMENSION(calc_num,2), INTENT(INOUT) :: calcs
     INTEGER :: i, procnum
     !Setting the processor number for each calculation
-    procnum = 1
+    procnum = 0
     DO i=1,calc_num
         calcs(i,1) = i
         calcs(i,2) = procnum
         IF ( procnum == nproc - 1 ) THEN
-            procnum = 1
+            procnum = 0
         ELSE
             procnum = procnum + 1
         END IF
