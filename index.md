@@ -10,12 +10,12 @@ country: "US"      # lowercase two-letter ISO country code such as "fr" (see htt
 language: "ENGLISH"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the
 latitude: "0"        # decimal latitude of workshop venue (use https://www.latlong.net/)
 longitude: "0"       # decimal longitude of the workshop venue (use https://www.latlong.net)
-humandate: "June 26, 2020"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
+humandate: "July 17, 2020"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
 humantime: "11:00 am - 12:00 pm"    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
 startdate: 2020-06-26      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 enddate: 2020-06-26        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
-instructor: ["Gabriel Medrano"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
-email: ["GabrielMedrano@my.unt.edu"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
+instructor: ["Cristina Castillo"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
+email: ["Cristina.Castillo@unt.edu"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
 ---
 
 {% comment %} See instructions in the comments below for how to edit specific sections of this workshop template. {% endcomment %}
@@ -116,7 +116,7 @@ Display the contact email address set in the configuration file.
   <p>To download files, right click on link, save link as..</p>
   <strong>Tutorial Files</strong>:
     <ul>
-      <li><a href="https://raw.githubusercontent.com/drano1024/2020-06-26-MPI_tutorial/gh-pages/files/MPI_Tutorial.f90" download> Fortran MPI_Tutorial file</a></li>
+      <li><a href="https://github.com/QEF/q-e" download> Quantum Espresso</a></li>
       <li><a href="https://raw.githubusercontent.com/drano1024/2020-06-26-MPI_tutorial/gh-pages/files/MPI_Tutorial.py" download> Python MPI_Tutorial file</a></li>
       <li><a href="https://raw.githubusercontent.com/drano1024/2020-06-26-MPI_tutorial/gh-pages/files/run_code.sh" download> Script to run codes</a></li>
     </ul>
@@ -140,7 +140,7 @@ the div's with class="row" to balance the multi-column layout.
 This is one of the places where people frequently make mistakes, so
 please preview your site before committing, and make sure to run
 'tools/check' as well.
-{% endcomment %}
+
 <h2 id="syllabus">Syllabus</h2>
 
 {% if site.carpentry == "swc" %}
@@ -150,8 +150,7 @@ please preview your site before committing, and make sure to run
 {% elsif site.carpentry == "lc" %}
 {% include lc/syllabus.html %}
 {% endif %}
-
-<hr/>
+{% endcomment %}
 
 {% comment %}
 SETUP
@@ -165,11 +164,10 @@ please preview your site before committing, and make sure to run
 'tools/check' as well.
 {% endcomment %}
 
-<h2 id="setup">Summary</h2>
+<h2 id="setup">Input File Summary</h2>
 
 <p>
-  Below is a summary of the MPI commands used along with a brief summary of what they do
-  and what inputs are required.
+  Below is a brief summary of the input file descriptions that are important for this tutorial.
 </p>
 
 {% if site.carpentry == "swc" %}
@@ -180,10 +178,10 @@ please preview your site before committing, and make sure to run
 {% include lc/setup.html %}
 {% endif %}
 
+<hr>
+<h2>References:</h2>
 
-<p> Fortran References:</p>
-<p> <a href="http://web.utk.edu/~wfeng1/doc/mpi_tutorial.pdf"> Reference 1 </a> </p>
-<p> <a href="https://mpitutorial.com/tutorials/"> Reference 2 </a> </p>
-<p> Python References:</p>
-<p> <a href="https://mpi4py.readthedocs.io/en/stable/index.html"> Reference 3 </a> </p>
-<p> <a href="https://hpc.llnl.gov/sites/default/files/pyMPI.pdf"> Reference 4 </a> </p>
+<p> <a href="https://www.quantum-espresso.org/resources/tutorials"> Quantum Espresso tutorials </a> </p>
+<p> <a href="https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1064"> pw.x input file descriptions </a> </p>
+<p> <a href="https://sites.google.com/site/dceresoli/pseudopotentials"> GIPAW pseudopotentials </a> </p>
+<p> <a href="https://sites.google.com/site/cecamspectra2010/program"> GIPAW tutorials </a> </p>

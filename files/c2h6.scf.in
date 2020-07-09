@@ -1,0 +1,40 @@
+&control
+    calculation = 'scf'
+    restart_mode = 'from_scratch'
+    prefix = 'c2h6.scf.t3'
+    tprnfor = .true.
+    pseudo_dir = './pseudo'
+    outdir = './tmp'
+    wf_collect = .true.
+    verbosity='high'
+ /
+ &system
+    ibrav = 8
+    celldm(1) = 24.4265999286
+    celldm(2) =  0.948940120687
+    celldm(3) =  0.618907628037
+    nat = 8
+    ntyp = 2
+    ecutwfc = 90.0
+    spline_ps = .true.
+ /
+ &electrons
+    diagonalization = 'david'
+    conv_thr =  1.0d-10
+    diago_thr_init = 1e-4
+ /
+ATOMIC_SPECIES
+C  12.000  C.pbe-tm-gipaw.UPF
+H   2.000  H.pbe-tm-gipaw.UPF
+ATOMIC_POSITIONS {angstrom}
+C       0.000000   0.000000   0.000000
+C       0.896143   0.896110   0.896106
+H       1.964844   0.714358   0.714347
+H       0.714358   0.714363   1.964816
+H       0.714360   1.964819   0.714351
+H      -0.652165  -0.652149   0.598517
+H       0.598496  -0.652166  -0.652162
+H      -0.652171   0.598506  -0.652153
+K_POINTS 
+1
+0.0000 0.0000 0.0000 1

@@ -1,314 +1,86 @@
-<div id="init"> {% comment %} Start of 'MPI_INIT' section. {% endcomment %}
-  <h3>MPI_INIT</h3>
-  <p style="margin-left: 40px">
-    Initializes the parallel processes.
-  </p>
-
-  <div>
-    <ul class="nav nav-tabs nav-justified" role="tablist">
-      <li role="presentation" class="active"><a data-os="fortran1" href="#fortran1" aria-controls="fortran1" role="tab" data-toggle="tab">Fortran 95</a></li>
-      <li role="presentation"><a data-os="python1" href="#python1" aria-controls="python1" role="tab" data-toggle="tab">Python</a></li>
-    </ul>
-
-    <div class="tab-content">
-      <article role="tabpanel" class="tab-pane active" id="fortran1">
-        <p>
-          <h3><b>COMMAND USAGE:</b> call MPI_INIT(ierr)</h3>
-          ierr is an integer that contains the error code.
-        </p>
-      </article>
-      <article role="tabpanel" class="tab-pane active" id="python1">
-        <p>
-          <h3><b>COMMAND USAGE:</b> MPI.Init()</h3>
-          MPI.Init() is called when MPI is imported from the mpi4py package.
-          No need to initialize in python.
-        </p>
-      </article>
-    </div>
-  </div>
-</div> {% comment %} End of 'MPI_INIT' section. {% endcomment %}
-
-<hr style="height: 12px; color:black; border-style: inset;">
-
-<div id="comm_world"> {% comment %} Start of 'MPI_COMM_WORLD' section. {% endcomment %}
-  <h3>MPI COMM WORLD</h3>
-  <p style="margin-left: 40px">
-    Collection of processors that will be used to run calculations in parallel.
-  </p>
-
-  <div>
-    <ul class="nav nav-tabs nav-justified" role="tablist">
-      <li role="presentation" class="active"><a data-os="fortran2" href="#fortran2" aria-controls="fortran2" role="tab" data-toggle="tab">Fortran 95</a></li>
-      <li role="presentation"><a data-os="python2" href="#python2" aria-controls="python2" role="tab" data-toggle="tab">Python</a></li>
-    </ul>
-
-    <div class="tab-content">
-      <article role="tabpanel" class="tab-pane active" id="fortran2">
-        <p>
-          <h3><b>COMMAND USAGE:</b> comm = MPI_COMM_WORLD</h3>
-        </p>
-      </article>
-      <article role="tabpanel" class="tab-pane active" id="python2">
-        <p>
-          <h3><b>COMMAND USAGE:</b> comm = MPI.COMM_WORLD</h3>
-        </p>
-      </article>
-    </div>
-  </div>
-</div> {% comment %} End of 'MPI_COMM_WORLD' section. {% endcomment %}
-
-<hr style="height: 12px; color:black; border-style: inset;">
-
-<div id="size_rank"> {% comment %} Start of 'MPI_COMM_SIZE and MPI_COMM_RANK' section. {% endcomment %}
-  <h3>MPI COMM SIZE and RANK</h3>
-  <p style="margin-left: 40px">
-    <ul>
-      <li>MPI_COMM_SIZE returns the number of processors available.</li>
-      <li>MPI_COMM_RANK returns the current processor number.</li>
-    </ul>
-  </p>
-
-  <div>
-    <ul class="nav nav-tabs nav-justified" role="tablist">
-      <li role="presentation" class="active"><a data-os="fortran3" href="#fortran3" aria-controls="fortran3" role="tab" data-toggle="tab">Fortran 95</a></li>
-      <li role="presentation"><a data-os="python3" href="#python3" aria-controls="python3" role="tab" data-toggle="tab">Python</a></li>
-    </ul>
-
-    <div class="tab-content">
-      <article role="tabpanel" class="tab-pane active" id="fortran3">
-        <p>
-          <h3><b>COMMAND USAGE:</b> call MPI_COMM_SIZE( comm, nproc, ierr )</h3>
-          <h3><b>COMMAND USAGE:</b> call MPI_COMM_RANK( comm, iproc, ierr )</h3>
-          <ul>
-            <li>comm: Communicator that is holding all the processes.</li>
-            <li>nproc: INTEGER that will hold the number of processors.</li>
-            <li>iproc: INTEGER that will hold the current processor identifier.</li>
-            <li>ierr: Holds the error code, if any.</li>
-          </ul>
-        </p>
-      </article>
-      <article role="tabpanel" class="tab-pane active" id="python3">
-        <p>
-          <h3><b>COMMAND USAGE:</b> comm.size</h3>
-          <h3><b>COMMAND USAGE:</b> comm.Get_rank()</h3>
-          <ul>
-            <li>comm.size: returns the number of processors being used.</li>
-            <li>comm.Get_rank(): returns the current processor identifier.</li>
-          </ul>
-        </p>
-      </article>
-    </div>
-  </div>
-</div> {% comment %} End of 'MPI_COMM_SIZE and MPI_COMM_RANK' section. {% endcomment %}
-
-<hr style="height: 12px; color:black; border-style: inset;">
-
-<div id="send"> {% comment %} Start of 'send' section. {% endcomment %}
-  <h3>Sending data</h3>
-  <p style="margin-left: 40px">
-    Data needs to be sent from the root_processor, usually rank 0 processor, to the
-    other processors.
-  </p>
-
-  <div>
-    <ul class="nav nav-tabs nav-justified" role="tablist">
-      <li role="presentation" class="active"><a data-os="fortran4" href="#fortran4" aria-controls="fortran4" role="tab" data-toggle="tab">Fortran 95</a></li>
-      <li role="presentation"><a data-os="python4" href="#python4" aria-controls="python4" role="tab" data-toggle="tab">Python</a></li>
-    </ul>
-
-    <div class="tab-content">
-      <article role="tabpanel" class="tab-pane active" id="fortran4">
-        <p>
-          <h3><b>COMMAND USAGE:</b> CALL MPI_SEND( buffer, buffer size, MPI_TYPE, processor, tag, comm, ierr )</h3>
-          <ul>
-            <li>buffer: variable/array that will be operated on.</li>
-            <li>buffer size: size of buffer. number of elements being sent.</li>
-            <li>MPI_TYPE: data type that the buffers hold.</li>
-            <li>processor: processor number the data is being sent to.</li>
-            <li>tag: integer that keeps track of the message being sent. Useful if sending many messages.</li>
-            <li>comm: Communicator that is holding all the processes.</li>
-            <li>ierr: Holds the error code, if any.</li>
-          </ul>
-        </p>
-      </article>
-      <article role="tabpanel" class="tab-pane active" id="python4">
-        <p>
-          <h3><b>COMMAND USAGE:</b> comm.send( size 1 buffer, dest=destination )</h3>
-          <h3><b>COMMAND USAGE:</b> comm.Send( buffer, dest=destination )</h3>
-          <ul>
-            <li>size 1 buffer: single element, float or integer.</li>
-            <li>dest=destination: destination is the processor number that will receive the data.</li>
-            <li>buffer: array that is being sent. Must send the length first with comm.send( ... )</li>
-          </ul>
-        </p>
-      </article>
-    </div>
-  </div>
-</div> {% comment %} End of 'MPI_COMM_SIZE and MPI_COMM_RANK' section. {% endcomment %}
-
-<hr style="height: 12px; color:black; border-style: inset;">
-
-<div id="receive"> {% comment %} Start of 'receive' section. {% endcomment %}
-  <h3>Receiving data</h3>
-  <p style="margin-left: 40px">
-    Data needs to be received from the root_processor, usually rank 0 processor, by the
-    other processors.
-  </p>
-
-  <div>
-    <ul class="nav nav-tabs nav-justified" role="tablist">
-      <li role="presentation" class="active"><a data-os="fortran5" href="#fortran5" aria-controls="fortran5" role="tab" data-toggle="tab">Fortran 95</a></li>
-      <li role="presentation"><a data-os="python5" href="#python5" aria-controls="python5" role="tab" data-toggle="tab">Python</a></li>
-    </ul>
-
-    <div class="tab-content">
-      <article role="tabpanel" class="tab-pane active" id="fortran5">
-        <p>
-          <h3><b>COMMAND USAGE:</b> CALL MPI_RECV( buffer, size, MPI_TYPE, source, tag, comm, status, ierr )</h3>
-          <ul>
-            <li>buffer: data that is being sent. Can be a single number or an array of any size.</li>
-            <li>size: number of elements that the buffer contains.</li>
-            <li>MPI_TYPE: data type that the buffers hold.</li>
-            <li>source: processor number that is sending the data.</li>
-            <li>tag: integer that keeps track of the message being sent. Useful if sending many messages.</li>
-            <li>comm: Communicator that is holding all the processes.</li>
-            <li>status: holds the status of the sending/receiving.</li>
-            <li>ierr: Holds the error code, if any.</li>
-          </ul>
-        </p>
-      </article>
-      <article role="tabpanel" class="tab-pane active" id="python5">
-        <p>
-          <h3><b>COMMAND USAGE:</b> size 1 buffer = comm.recv( source=processor )</h3>
-          <h3><b>COMMAND USAGE:</b> comm.Recv( buffer, source=processor )</h3>
-          <ul>
-            <li>size 1 buffer: single element, float or integer.</li>
-            <li>source=processor: processor is the integer value of the processor that is sending the data.</li>
-            <li>buffer: use comm.Recv( ... ) if sending an array. The array has to be initialized beforehand.</li>
-          </ul>
-        </p>
-      </article>
-    </div>
-  </div>
-</div> {% comment %} End of 'MPI_COMM_SIZE and MPI_COMM_RANK' section. {% endcomment %}
-
-<hr style="height: 12px; color:black; border-style: inset;">
-
-<div id="receive"> {% comment %} Start of 'broadcast' section. {% endcomment %}
-  <h3>Broadcasting data</h3>
-  <p style="margin-left: 40px">
-    Data is sent to all other processors, while the processor sending the data keeps
-     a copy of the data.
-  </p>
-
-  <div>
-    <ul class="nav nav-tabs nav-justified" role="tablist">
-      <li role="presentation" class="active"><a data-os="fortran6" href="#fortran6" aria-controls="fortran6" role="tab" data-toggle="tab">Fortran 95</a></li>
-      <li role="presentation"><a data-os="python6" href="#python6" aria-controls="python6" role="tab" data-toggle="tab">Python</a></li>
-    </ul>
-
-    <div class="tab-content">
-      <article role="tabpanel" class="tab-pane active" id="fortran6">
-        <p>
-          <h3><b>COMMAND USAGE:</b> call MPI_BCAST( buffer, buffer size, MPI_TYPE, root, comm, ierr )</h3>
-          <ul>
-            <li>buffer: data that is being sent. Can be a single number or an array of any size.</li>
-            <li>buffer size: size of buffer, number of elements being sent.</li>
-            <li>comm: Communicator that is holding all the processes.</li>
-            <li>nproc: INTEGER that will hold the number of processors.</li>
-            <li>iproc: INTEGER that will hold the current processor identifier.</li>
-            <li>ierr: Holds the error code, if any.</li>
-          </ul>
-        </p>
-      </article>
-      <article role="tabpanel" class="tab-pane active" id="python6">
-        <p>
-          <h3><b>COMMAND USAGE:</b> buffer_out = comm.bcast( buffer_in, root=0 )</h3>
-          <ul>
-            <li>comm = MPI.COMM_WORLD</li>
-            <li>buffer_in/out: data that is being sent/received. Can be a single number or an array of any size.</li>
-            <li>root: The number of the main processor.</li>
-          </ul>
-        </p>
-      </article>
-    </div>
-  </div>
-</div> {% comment %} End of 'MPI_COMM_SIZE and MPI_COMM_RANK' section. {% endcomment %}
-
-<hr style="height: 12px; color:black; border-style: inset;">
-
-<div id="receive"> {% comment %} Start of 'reduce' section. {% endcomment %}
-  <h3>Reducing data</h3>
-  <p style="margin-left: 40px">
-    Application of operation on a variable, if single variable, or on matching indicies across processors, if array.
-  </p>
-
-  <div>
-    <ul class="nav nav-tabs nav-justified" role="tablist">
-      <li role="presentation" class="active"><a data-os="fortran7" href="#fortran7" aria-controls="fortran7" role="tab" data-toggle="tab">Fortran 95</a></li>
-      <li role="presentation"><a data-os="python7" href="#python7" aria-controls="python7" role="tab" data-toggle="tab">Python</a></li>
-    </ul>
-
-    <div class="tab-content">
-      <article role="tabpanel" class="tab-pane active" id="fortran7">
-        <p>
-          <h3><b>COMMAND USAGE:</b> CALL MPI_REDUCE( buffer, second buffer, size, MPI_TYPE, MPI_CALC, root, comm, ierr )</h3>
-          <ul>
-            <li>buffer: variable/array that will be operated on.</li>
-            <li>second buffer: buffer that will hold the final value.</li>
-            <li>size: size of buffer. second buffer must be the same size.</li>
-            <li>MPI_TYPE: data type that the buffers hold.</li>
-            <li>MPI_CALC: calculation that will be applied to each element.</li>
-            <li>root: root processor integer value.</li>
-            <li>comm: Communicator that is holding all the processes.</li>
-            <li>ierr: Holds the error code, if any.</li>
-          </ul>
-        </p>
-      </article>
-      <article role="tabpanel" class="tab-pane active" id="python7">
-        <p>
-          <h3><b>COMMAND USAGE:</b> second buffer = comm.reduce( buffer, op=operation, root=0 )</h3>
-          <ul>
-            <li>second buffer: buffer that will hold the final value.</li>
-            <li>buffer: variable/array that will be operated on.</li>
-            <li>operation: operation that will be applied to each element.</li>
-            <li>root: root processor integer value, usually 0.</li>
-          </ul>
-        </p>
-      </article>
-    </div>
-  </div>
-</div> {% comment %} End of 'MPI_COMM_SIZE and MPI_COMM_RANK' section. {% endcomment %}
-
-<hr style="height: 12px; color:black; border-style: inset;">
-
 <div class="row">
   <div class="col-md-6">
-    <h3 id="syllabus-shell">MPI_Types</h3>
+    <h3>pw.x input</h3>
     <ul>
-      <li>INTEGER: MPI_INTEGER</li>
-      <li>REAL: MPI_REAL</li>
-      <li>DOUBLE PRECISION: MPI_DOUBLE_PRECISION</li>
-      <li>COMPLEX: MPI_COMPLEX</li>
-      <li>LOGICAL: MPI_LOGICAL</li>
-      <li>CHARACTER: MPI_CHARACTER</li>
-      <li>MPI_PACKED</li>
+      <li>&control card</li>
+      <ul>
+        <li>calculation: A string describing the task that will be performed but for the 
+          purposes of this tutorial we will only be using 'scf'
+        </li>
+        <li>prefix: Prepended to input/output file names and extremely important that file 
+          name is unique and the same in the gipaw input file
+        </li>
+        <li>pseudo_dir: Directory that contains the pseudopotential files 
+        </li>
+        <li>outdir: Temporary output directory
+        </li>
+      </ul>
     </ul>
-  </div>
-  <div class="col-md-6">
-    <h3 id="syllabus-python">MPI_OPERATIONS</h3>
     <ul>
-      <li>MPI_MAX: Finds maximum across all processors for each array index</li>
-      <li>MPI_MIN: Finds minimum across all processors for each array index</li>
-      <li>MPI_PROD: Finds product across all processors for each array index </li>
-      <li>MPI_SUM: Finds sum across all processors for each array index</li>
-      <li>MPI_LAN: Logical AND</li>
-      <li>MPI_LOR: Logical OR</li>
-      <li>MPI_LXOR: Logical Exclusive OR</li>
-      <li>MPI_MAXLOC: Maximum value and location</li>
-      <li>MPI_MINLOC: Minimum value and location</li>
+      <li>&system card</li>
+      <ul>
+        <li>ibrav: The bravais-lattice structure of the system 
+        </li>
+        <li>celldm(#): Based on the bravais-lattice structure
+          <ul>
+            <li>1 = a</li>
+            <li>2 = b/a</li>
+            <li>3 = c/a</li>
+            <li>4 = cos(bc)</li>
+            <li>5 = cos(ac)</li>
+            <li>6 = cos(ab)</li>
+          </ul>
+        </li>
+        <li>nat: Number of atoms in the unit cell
+        </li>
+        <li>ntyp: Number of types of atoms in the unit cell
+        </li>
+        <li>ecutwfc: Kinetic eneryg cutoff (Ry) for the wavefunctions
+          <ul>
+            <li>It is normal to start off with 90.0 but then to find the convergence for the 
+              energy
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </ul>
+    <ul>
+      <li>ATOMIC_SPECIES card</li>
+      <p>
+        This is a 3 column list of the atom type, mass of the atomic species, and
+        the file containing the pseudopotential for this species:
+      </p>
+      <p>
+        X   Mass_X    PseudoPot_X
+      </p>
+    </ul>
+    <ul>
+      <li>ATOMIC_POSITIONS {XXXX} card: the card has several description options and it is 
+        based on the units for the atomic postions
+      </li>
+      <p> </p>
+      <p>
+        This is a 4 column list of the atom type and then its x, y, z atomic positons:
+      </p>
+      <p>
+        X   x   y   z
+      </p>
     </ul>
   </div>
 </div>
-
-<hr style="height: 12px; color:black; border-style: inset;">
+<div class="row">
+  <div class="col-md-6">
+    <h3>gipaw.x input</h3>
+    <p>&inputgipaw card</p>
+      <ul>
+        <li>job: A string describing the task that will be performed but for the 
+          purposes of this tutorial we will only be using 'nmr'
+        </li>
+        <li>prefix: Prepended to input/output file names and extremely important that file 
+          name is unique and the same in the pw.x input file
+        </li>
+        <li>tmp_dir: Temporary output directory
+        </li>
+      </ul>
+  </div>
+</div>

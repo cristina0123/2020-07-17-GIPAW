@@ -1,0 +1,7 @@
+&inputgipaw
+	job = 'nmr'
+	prefix = 'c2h6.scf.t3'
+	tmp_dir = './tmp/'
+	verbosity = 'high'
+        spline_ps = .true.
+/

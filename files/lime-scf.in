@@ -1,0 +1,37 @@
+&control
+    calculation = 'scf'
+    restart_mode = 'from_scratch'
+    prefix = 'lime'
+    tstress = .true.
+    tprnfor = .true.
+    pseudo_dir = '../pseudo/'
+    outdir = './scratch/'
+/
+&system
+    ibrav = 2
+    celldm(1) = 9.0990313
+    nat = 2
+    ntyp = 2
+    ecutwfc = 90
+    spline_ps = .true.
+/
+&electrons
+    diagonalization = 'david'
+    mixing_mode = 'plain'
+    mixing_beta = 0.7
+    conv_thr =  1e-8
+    diago_thr_init = 1e-4
+/
+
+ATOMIC_SPECIES
+Ca 40.078  Ca.pbe-tm-new-3dshift+8.0.UPF
+O  16.000  O.pbe-tm-gipaw.UPF
+
+ATOMIC_POSITIONS alat
+Ca   0.0 0.0 0.0
+O    0.5 0.0 0.0
+
+K_POINTS automatic
+8 8 8 0 0 0
+
+

@@ -1,0 +1,46 @@
+&control
+    calculation = 'scf'
+    restart_mode = 'from_scratch'
+    prefix = 'portlandite'
+    tstress = .true.
+    tprnfor = .true.
+    pseudo_dir = '../pseudo/'
+    outdir = './scratch/'
+/
+&system
+    ibrav = 0
+    celldm(1) = 6.7888411
+    nat = 5
+    ntyp = 3
+    ecutwfc = 90
+    spline_ps = .true.
+/
+&electrons
+    diagonalization = 'david'
+    mixing_mode = 'plain'
+    mixing_beta = 0.7
+    conv_thr =  1e-8
+    diago_thr_init = 1e-4
+/
+
+ATOMIC_SPECIES
+Ca 40.078  Ca.pbe-tm-new-3dshift+8.0.UPF
+O  16.000  O.pbe-tm-gipaw.UPF
+H   1.000  H.pbe-tm-gipaw.UPF
+
+CELL_PARAMETERS cubic
+ 0.866025404  0.5000000  0.0000000
+-0.866025404  0.5000000  0.0000000
+ 0.000000000  0.0000000  1.3653445
+
+ATOMIC_POSITIONS (crystal)
+Ca       0.000000000   0.000000000   0.000000000    0   0   0
+O        0.335404230   0.669675095   0.234505832
+O        0.669675095   0.335404230   0.765494168
+H        0.328197348   0.663690349   0.435157733
+H        0.663690349   0.328197348   0.564842267
+
+K_POINTS automatic
+6 6 3 0 0 0
+
+
