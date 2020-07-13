@@ -113,11 +113,13 @@ Display the contact email address set in the configuration file.
 <hr/>
 
 <p id="tutorial_files">
-  <p>To download files, right click on link, save link as..</p>
-  <strong>Tutorial Files</strong>:
+    <strong>Program Download Links</strong>:
     <ul>
       <li><a href="https://github.com/QEF/q-e" download> Quantum Espresso</a></li>
       <li><a href="https://github.com/dceresoli/qe-gipaw" download> GIPAW </a></li>
+    </ul>
+    <strong>Tutorial Files</strong>:
+    <ul>
       <li><a href="https://github.com/cristina0123/2020-07-17-GIPAW/blob/gh-pages/files/GIPAW%20Presentation.pdf"> GIPAW Tutorial</a></li>
       <li><a href="https://github.com/cristina0123/2020-07-17-GIPAW/tree/gh-pages/files"> Input File Directory</a></li>
     </ul>
