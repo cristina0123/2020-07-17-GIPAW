@@ -118,6 +118,7 @@ Display the contact email address set in the configuration file.
     <ul>
       <li><a href="https://github.com/QEF/q-e" download> Quantum Espresso</a></li>
       <li><a href="https://github.com/dceresoli/qe-gipaw" download> GIPAW </a></li>
+      <li><a href="https://github.com/cristina0123/2020-07-17-GIPAW/blob/gh-pages/files/GIPAW%20Presentation.pdf"> GIPAW Tutorial</a></li>
       <li><a href="https://github.com/cristina0123/2020-07-17-GIPAW/tree/gh-pages/files"> Input File Directory</a></li>
     </ul>
 </p>
