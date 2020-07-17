@@ -1,9 +1,0 @@
-&inputgipaw
-        job = 'efg'
-        prefix = 'lime'
-        tmp_dir = './scratch/'
-        iverbosity = 11
-        spline_ps = .true.
-        Q_efg(1) = -4.44
-        Q_efg(2) = -2.55
-/
